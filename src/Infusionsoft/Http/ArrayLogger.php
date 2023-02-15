@@ -16,12 +16,8 @@ class ArrayLogger implements LoggerInterface
 
     /**
      * System is unusable.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function emergency($message, array $context = array())
+    public function emergency(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::EMERGENCY, $message, $context);
     }
@@ -31,12 +27,8 @@ class ArrayLogger implements LoggerInterface
      *
      * Example: Entire website down, database unavailable, etc. This should
      * trigger the SMS alerts and wake you up.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function alert($message, array $context = array())
+    public function alert(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::ALERT, $message, $context);
     }
@@ -45,12 +37,8 @@ class ArrayLogger implements LoggerInterface
      * Critical conditions.
      *
      * Example: Application component unavailable, unexpected exception.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function critical($message, array $context = array())
+    public function critical(\Stringable|string  $message, array $context = array()): void
     {
         $this->log(LogLevel::CRITICAL, $message, $context);
     }
@@ -58,12 +46,8 @@ class ArrayLogger implements LoggerInterface
     /**
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function error($message, array $context = array())
+    public function error(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::ERROR, $message, $context);
     }
@@ -73,24 +57,16 @@ class ArrayLogger implements LoggerInterface
      *
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function warning($message, array $context = array())
+    public function warning(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::WARNING, $message, $context);
     }
 
     /**
      * Normal but significant events.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function notice($message, array $context = array())
+    public function notice(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::NOTICE, $message, $context);
     }
@@ -99,24 +75,16 @@ class ArrayLogger implements LoggerInterface
      * Interesting events.
      *
      * Example: User logs in, SQL logs.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function info($message, array $context = array())
+    public function info(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::INFO, $message, $context);
     }
 
     /**
      * Detailed debug information.
-     *
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function debug($message, array $context = array())
+    public function debug(\Stringable|string $message, array $context = array()): void
     {
         $this->log(LogLevel::DEBUG, $message, $context);
     }
@@ -125,11 +93,8 @@ class ArrayLogger implements LoggerInterface
      * Logs with an arbitrary level.
      *
      * @param mixed $level
-     * @param string $message
-     * @param array $context
-     * @return null
      */
-    public function log($level, $message, array $context = array())
+    public function log($level, \Stringable|string $message, array $context = array()): void
     {
         $this->logs[$level][] = [
             'message' => $message,
